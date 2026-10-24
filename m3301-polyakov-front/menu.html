@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - Los Pollos Hermanos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/common.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Los Pollos Hermanos</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="menu.html" class="nav__link">Меню</a></li>
+                    <li class="nav__item"><a href="restaurants.html" class="nav__link">Наши рестораны</a></li>
+                    <li class="nav__item"><a href="history.html" class="nav__link">Наша история</a></li>
+                    <li class="nav__item"><a href="recipe.html" class="nav__link">Создай свой рецепт</a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    <li class="nav__item"><a href="feedback.html" class="nav__link">Отзывы</a></li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">Новости</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="section">
+            <div class="container">
+                <h2 class="section__title">Наше Меню</h2>
+
+                <div class="menu-layout">
+                    <div class="menu-content">
+                        <article class="menu-category">
+                            <h3 class="menu-category__title">Основные блюда</h3>
+                            <ul class="menu-list">
+                                <li class="menu-item">
+                                    <strong class="menu-item__name">Классическая жареная курочка</strong>
+                                    <span class="menu-item__price">
+                                        <del class="price--old">$8.99</del>
+                                        <ins class="price--new">$7.99</ins>
+                                    </span>
+                                    <button class="button button--add"
+                                        onclick="addToCart('Классическая жареная курочка', 7.99)">Добавить в
+                                        корзину</button>
+                                </li>
+                                <li class="menu-item">
+                                    <strong class="menu-item__name">Острая курочка</strong>
+                                    <span class="menu-item__price">$9.49</span>
+                                    <button class="button button--add"
+                                        onclick="addToCart('Острая курочка', 9.49)">Добавить в корзину</button>
+                                </li>
+                                <li class="menu-item">
+                                    <strong class="menu-item__name">Семейный комбо</strong>
+                                    <span class="menu-item__price">$24.99</span>
+                                    <button class="button button--add"
+                                        onclick="addToCart('Семейный комбо', 24.99)">Добавить в корзину</button>
+                                </li>
+                                <li class="menu-item">
+                                    <strong class="menu-item__name">Куриные крылышки</strong>
+                                    <span class="menu-item__price">$10.99</span>
+                                    <button class="button button--add"
+                                        onclick="addToCart('Куриные крылышки', 10.99)">Добавить в корзину</button>
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="menu-category">
+                            <h3 class="menu-category__title">Гарниры</h3>
+                            <ol class="menu-list menu-list--numbered">
+                                <li class="menu-item">
+                                    <span class="menu-item__name">Картофель фри</span>
+                                    <span class="menu-item__price">$3.99</span>
+                                    <button class="button button--add"
+                                        onclick="addToCart('Картофель фри', 3.99)">Добавить в корзину</button>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item__name">Салат коул-слоу</span>
+                                    <span class="menu-item__price">$2.99</span>
+                                    <button class="button button--add"
+                                        onclick="addToCart('Салат коул-слоу', 2.99)">Добавить в корзину</button>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item__name">Кукуруза</span>
+                                    <span class="menu-item__price">$2.49</span>
+                                    <button class="button button--add" onclick="addToCart('Кукуруза', 2.49)">Добавить в
+                                        корзину</button>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item__name">Чесночный хлеб</span>
+                                    <span class="menu-item__price">$1.99</span>
+                                    <button class="button button--add"
+                                        onclick="addToCart('Чесночный хлеб', 1.99)">Добавить в корзину</button>
+                                </li>
+                            </ol>
+                        </article>
+                    </div>
+
+                    <aside class="cart-sidebar">
+                        <div class="cart-sidebar__header">
+                            <h3 class="cart-sidebar__title">🛒 Ваша корзина</h3>
+                            <div id="cartTotal" class="cart-sidebar__total">$0.00</div>
+                        </div>
+
+                        <div id="cartItems" class="cart-sidebar__items">
+                            <p class="cart-empty">Ваша корзина пуста</p>
+                        </div>
+
+                        <div class="cart-sidebar__actions">
+                            <button class="button button--secondary" onclick="clearCart()">Очистить корзину</button>
+                            <button class="button button--primary" onclick="checkout()">Оформить заказ</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция пищевой ценности -->
+        <section class="section section--alt">
+            <div class="container">
+                <h2 class="section__title">Пищевая ценность</h2>
+                <div class="table-container">
+                    <table class="nutrition-table">
+                        <thead>
+                            <tr>
+                                <th>Блюдо</th>
+                                <th>Калории</th>
+                                <th>Белки (г)</th>
+                                <th>Жиры (г)</th>
+                                <th>Углеводы (г)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Классическая курочка</td>
+                                <td>320</td>
+                                <td>25</td>
+                                <td>18</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>Острая курочка</td>
+                                <td>340</td>
+                                <td>26</td>
+                                <td>19</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>Куриные крылышки</td>
+                                <td>280</td>
+                                <td>22</td>
+                                <td>16</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Картофель фри</td>
+                                <td>230</td>
+                                <td>3</td>
+                                <td>11</td>
+                                <td>29</td>
+                            </tr>
+                            <tr>
+                                <td>Салат коул-слоу</td>
+                                <td>120</td>
+                                <td>1</td>
+                                <td>8</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <section class="footer-section">
+                    <h2 class="footer-section__title">Информация</h2>
+                    <p class="footer-section__text"><strong class="text--accent">Телефон:</strong> (505) 842-5667</p>
+                    <p class="footer-section__text"><strong class="text--accent">Часы работы:</strong>
+                        Понедельник-Воскресенье 9:00 - 22:00</p>
+                    <p class="footer-copyright"><small class="text--small">Los Pollos Hermanos &copy; 1989-2025. Все
+                            права защищены.</small></p>
+                </section>
+
+                <nav class="footer-nav">
+                    <ul class="footer-nav__list">
+                        <li class="footer-nav__item"><a href="index.html" class="footer-nav__link">Главная</a></li>
+                        <li class="footer-nav__item"><a href="menu.html" class="footer-nav__link">Меню</a></li>
+                        <li class="footer-nav__item"><a href="restaurants.html" class="footer-nav__link">Рестораны</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="history.html" class="footer-nav__link">Наша история</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="recipe.html" class="footer-nav__link">Создать рецепт</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="contacts.html" class="footer-nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-banner">
+                <p>Работаем с 1989 года • Более 30 лет совершенства • Качество, которому доверяют</p>
+            </div>
+            <div id="loadTime" class="load-time"></div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

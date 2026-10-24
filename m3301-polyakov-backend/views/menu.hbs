@@ -1,0 +1,128 @@
+<section class="section">
+    <div class="container">
+        <h2 class="section__title">Наше меню</h2>
+        <p class="cart-empty" style="margin-bottom: var(--spacing-md);">
+            Данные загружаются из хранилища приложения. Изменения коллекции транслируются через
+            <abbr title="Server-Sent Events">SSE</abbr> на этой странице.
+        </p>
+
+        <div class="menu-layout">
+            <div class="menu-content">
+                {{#each menuSections}}
+                <article class="menu-category">
+                    <h3 class="menu-category__title">{{title}}</h3>
+                    {{#if items.length}}
+                    <ul class="menu-list">
+                        {{#each items}}
+                        <li class="menu-item" data-menu-item-id="{{id}}">
+                            <strong class="menu-item__name">{{name}}</strong>
+                            <p class="news-card__text" style="margin: 0.25rem 0 0.5rem; font-size: 0.9rem;">{{description}}</p>
+                            <span class="menu-item__price">{{priceRub}}&nbsp;₽</span>
+                            {{#if @root.user}}
+                            <button type="button" class="button button--add"
+                                onclick="addToCart('{{name}}', {{priceRub}})">В корзину</button>
+                            {{/if}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{else}}
+                    <p class="cart-empty">В этой категории пока нет доступных позиций.</p>
+                    {{/if}}
+                </article>
+                {{/each}}
+            </div>
+
+            <aside class="cart-sidebar">
+                <div class="cart-sidebar__header">
+                    <h3 class="cart-sidebar__title">🛒 Ваша корзина</h3>
+                    <div id="cartTotal" class="cart-sidebar__total">0&nbsp;₽</div>
+                </div>
+
+                <div id="cartItems" class="cart-sidebar__items">
+                    <p class="cart-empty">Ваша корзина пуста</p>
+                </div>
+
+                {{#unless user}}
+                <p class="cart-empty" style="margin-top: var(--spacing-sm); padding: 0.75rem; border: 1px dashed var(--color-border, #ccc); border-radius: var(--border-radius, 8px);">
+                    Войдите в аккаунт, чтобы добавлять блюда в корзину и оформлять заказ.
+                </p>
+                {{/unless}}
+
+                <div class="cart-sidebar__actions">
+                    <button type="button" class="button button--secondary" onclick="clearCart()">Очистить корзину</button>
+                    <button type="button" class="button button--primary" onclick="checkout()">Оформить заказ</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<section class="section section--alt">
+    <div class="container">
+        <h2 class="section__title">Пищевая ценность (пример)</h2>
+        <div class="table-container">
+            <table class="nutrition-table">
+                <thead>
+                    <tr>
+                        <th>Блюдо</th>
+                        <th>Калории</th>
+                        <th>Белки (г)</th>
+                        <th>Жиры (г)</th>
+                        <th>Углеводы (г)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Классическая курочка</td>
+                        <td>320</td>
+                        <td>25</td>
+                        <td>18</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Острая курочка</td>
+                        <td>340</td>
+                        <td>26</td>
+                        <td>19</td>
+                        <td>14</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{{#if loadToastr}}
+<script>
+window.addEventListener('load', function () {
+  if (typeof window.EventSource === 'undefined') return;
+  if (typeof window.toastr === 'undefined') return;
+  toastr.options = {
+    closeButton: true,
+    progressBar: true,
+    positionClass: 'toast-top-right',
+    timeOut: 6000,
+    preventDuplicates: true,
+  };
+  try {
+    var es = new EventSource('/menu/notifications');
+    es.onmessage = function (ev) {
+      try {
+        var data = JSON.parse(ev.data);
+        if (data.type === 'connected') {
+          return;
+        }
+        if (data.type === 'created') {
+          toastr.success('В меню добавлено: «' + data.item.name + '»');
+        } else if (data.type === 'updated') {
+          toastr.info('Обновлена позиция: «' + data.item.name + '»');
+        } else if (data.type === 'deleted') {
+          toastr.warning('Удалена позиция: «' + data.item.name + '»');
+        }
+      } catch (e) {}
+    };
+    es.onerror = function () {};
+  } catch (e) {}
+});
+</script>
+{{/if}}

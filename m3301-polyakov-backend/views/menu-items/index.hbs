@@ -1,0 +1,44 @@
+<section class="section">
+    <div class="container">
+        <h2 class="section__title">{{title}}</h2>
+        <p class="cart-empty" style="margin-bottom: var(--spacing-sm);">Управление позициями меню</p>
+        <p style="margin-bottom: var(--spacing-md);">
+            <a href="/menu-items/add" class="button button--primary">Добавить позицию</a>
+            <a href="/menu" class="button button--secondary" style="margin-left: 0.5rem;">Публичное меню</a>
+        </p>
+
+        {{#if items.length}}
+        <div class="table-container">
+            <table class="nutrition-table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Категория</th>
+                        <th>Цена, ₽</th>
+                        <th>В наличии</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each items}}
+                    <tr>
+                        <td><a href="/menu-items/{{id}}">{{name}}</a></td>
+                        <td>{{category}}</td>
+                        <td>{{priceRub}}</td>
+                        <td>{{#if isAvailable}}да{{else}}нет{{/if}}</td>
+                        <td>
+                            <a href="/menu-items/{{id}}/edit" class="button button--secondary" style="padding:0.35rem 0.75rem;">Изменить</a>
+                            <form method="post" action="/menu-items/{{id}}/delete" style="display:inline; margin-left:0.35rem;" onsubmit="return confirm('Удалить блюдо «{{name}}»?');">
+                                <button type="submit" class="button button--secondary" style="padding:0.35rem 0.75rem;">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{else}}
+        <p class="cart-empty">Позиций пока нет — создайте первую.</p>
+        {{/if}}
+    </div>
+</section>

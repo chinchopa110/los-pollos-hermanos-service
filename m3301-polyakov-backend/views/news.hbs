@@ -1,0 +1,34 @@
+<section class="section section--alt">
+    <div class="container">
+        <h2 class="section__title">Новости</h2>
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+            <p>Загружаем новости...</p>
+        </div>
+
+        <div id="error" class="error hidden">
+            <h3>Ошибка</h3>
+            <p id="errorMessage">Не удалось загрузить новости</p>
+            <button id="retryBtn" class="button button--primary">Повторить</button>
+        </div>
+
+        <div id="newsContainer">
+            <div class="news-grid" id="newsGrid"></div>
+            <div id="noNews" class="no-data hidden">
+                <p>Новости не найдены</p>
+            </div>
+        </div>
+
+        <template id="newsTemplate">
+            <article class="news-card">
+                <h3 class="news-title"></h3>
+                <div class="news-meta">
+                    <span>Категория: <span class="news-category"></span></span>
+                </div>
+                <p class="news-body"></p>
+            </article>
+        </template>
+    </div>
+</section>
+
+<script src="/js/news.js"></script>

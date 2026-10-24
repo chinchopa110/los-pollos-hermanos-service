@@ -1,0 +1,34 @@
+<section class="section section--alt">
+    <div class="container">
+        <h2 class="section__title">Отзывы</h2>
+        <p style="margin-bottom: var(--spacing-md);">
+            <a href="/feedback/add" class="button button--primary">Оставить отзыв</a>
+        </p>
+
+        {{#if items.length}}
+        <div class="news-grid">
+            {{#each items}}
+            <article class="news-card review-card">
+                <h3 class="news-card__title">
+                    {{authorName}}
+                    <small style="font-weight: 400; color: var(--color-text-light);"> · {{email}}</small>
+                </h3>
+                <p class="news-card__date">Оценка: {{rating}}/5</p>
+                <p class="news-card__text">{{message}}</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top: var(--spacing-sm);">
+                    <a href="/feedback/{{id}}" class="button button--secondary" style="padding:0.35rem 0.75rem;">Открыть</a>
+                    {{#if canManage}}
+                    <a href="/feedback/{{id}}/edit" class="button button--secondary" style="padding:0.35rem 0.75rem;">Изменить</a>
+                    <form method="post" action="/feedback/{{id}}/delete" style="display:inline;" onsubmit="return confirm('Удалить отзыв?');">
+                        <button type="submit" class="button button--secondary" style="padding:0.35rem 0.75rem;">Удалить</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </article>
+            {{/each}}
+        </div>
+        {{else}}
+        <p class="cart-empty">Отзывов пока нет — будьте первым.</p>
+        {{/if}}
+    </div>
+</section>

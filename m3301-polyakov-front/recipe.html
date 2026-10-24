@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создай свой рецепт - Los Pollos Hermanos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/common.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Los Pollos Hermanos</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="menu.html" class="nav__link">Меню</a></li>
+                    <li class="nav__item"><a href="restaurants.html" class="nav__link">Наши рестораны</a></li>
+                    <li class="nav__item"><a href="history.html" class="nav__link">Наша история</a></li>
+                    <li class="nav__item"><a href="recipe.html" class="nav__link">Создай свой рецепт</a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    <li class="nav__item"><a href="feedback.html" class="nav__link">Отзывы</a></li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">Новости</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="section section--alt">
+            <div class="container">
+                <h2 class="section__title">Создай свой секретный рецепт!</h2>
+                <p class="section__text">Поэкспериментируй с нашими ингредиентами и создай уникальную панировку:</p>
+
+                <form id="recipeForm" class="recipe-form">
+                    <fieldset class="form-fieldset">
+                        <legend class="form-legend">Выбери основные ингредиенты:</legend>
+
+                        <label class="form-label">
+                            <input type="checkbox" name="ingredient" value="мука" class="form-checkbox">
+                            Мука
+                        </label>
+
+                        <label class="form-label">
+                            <input type="checkbox" name="ingredient" value="кукурузная мука" class="form-checkbox">
+                            Кукурузная мука
+                        </label>
+
+                        <label class="form-label">
+                            <input type="checkbox" name="ingredient" value="панировочные сухари" class="form-checkbox">
+                            Панировочные сухари
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="form-fieldset">
+                        <legend class="form-legend">Выбери специи:</legend>
+
+                        <label class="form-label">
+                            <input type="checkbox" name="spice" value="соль" class="form-checkbox">
+                            Соль
+                        </label>
+
+                        <label class="form-label">
+                            <input type="checkbox" name="spice" value="чёрный перец" class="form-checkbox">
+                            Чёрный перец
+                        </label>
+
+                        <label class="form-label">
+                            <input type="checkbox" name="spice" value="паприка" class="form-checkbox">
+                            Паприка
+                        </label>
+
+                        <label class="form-label">
+                            <input type="checkbox" name="spice" value="чесночный порошок" class="form-checkbox">
+                            Чесночный порошок
+                        </label>
+
+                        <label class="form-label">
+                            <input type="checkbox" name="spice" value="луковый порошок" class="form-checkbox">
+                            Луковый порошок
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="form-fieldset">
+                        <legend class="form-legend">Секретный ингредиент:</legend>
+                        <select name="secret" class="form-select">
+                            <option value="">-- Выбери секретный ингредиент --</option>
+                            <option value="мёд">Мёд</option>
+                            <option value="соевый соус">Соевый соус</option>
+                            <option value="лимонный сок">Лимонный сок</option>
+                            <option value="горчица">Горчица</option>
+                            <option value="острый соус">Острый соус</option>
+                        </select>
+                    </fieldset>
+
+                    <button type="button" class="button button--primary" onclick="createRecipe()">Создать
+                        рецепт!</button>
+                </form>
+
+                <div id="recipeResult" class="recipe-result">
+                    <h3 class="recipe-result__title">Твой уникальный рецепт:</h3>
+                    <p id="recipeText" class="recipe-result__text"></p>
+                    <p id="recipeVerdict" class="recipe-result__verdict"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <section class="footer-section">
+                    <h2 class="footer-section__title">Информация</h2>
+                    <p class="footer-section__text"><strong class="text--accent">Телефон:</strong> (505) 842-5667</p>
+                    <p class="footer-section__text"><strong class="text--accent">Часы работы:</strong>
+                        Понедельник-Воскресенье 9:00 - 22:00</p>
+                    <p class="footer-copyright"><small class="text--small">Los Pollos Hermanos &copy; 1989-2025. Все
+                            права защищены.</small></p>
+                </section>
+
+                <nav class="footer-nav">
+                    <ul class="footer-nav__list">
+                        <li class="footer-nav__item"><a href="index.html" class="footer-nav__link">Главная</a></li>
+                        <li class="footer-nav__item"><a href="menu.html" class="footer-nav__link">Меню</a></li>
+                        <li class="footer-nav__item"><a href="restaurants.html" class="footer-nav__link">Рестораны</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="history.html" class="footer-nav__link">Наша история</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="recipe.html" class="footer-nav__link">Создать рецепт</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="contacts.html" class="footer-nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-banner">
+                <p>Работаем с 1989 года • Более 30 лет совершенства • Качество, которому доверяют</p>
+            </div>
+            <div id="loadTime" class="load-time"></div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

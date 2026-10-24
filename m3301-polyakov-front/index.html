@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Pollos Hermanos - Официальный сайт</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/common.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Los Pollos Hermanos</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="menu.html" class="nav__link">Меню</a></li>
+                    <li class="nav__item"><a href="restaurants.html" class="nav__link">Наши рестораны</a></li>
+                    <li class="nav__item"><a href="history.html" class="nav__link">Наша история</a></li>
+                    <li class="nav__item"><a href="recipe.html" class="nav__link">Создай свой рецепт</a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                    <li class="nav__item"><a href="feedback.html" class="nav__link">Отзывы</a></li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">Новости</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="inicio" class="section section--hero">
+            <div class="container">
+                <h2 class="section__title section__title--hero">Добро пожаловать в Los Pollos Hermanos</h2>
+                <p class="section__text">Лучший фаст-фуд в <em class="text--emphasis">Альбукерке</em> и его окрестностях
+                </p>
+                <p class="section__text">Наша жареная курочка <em class="text--emphasis">просто неотразима</em></p>
+                <div class="hero-image">
+                    <img src="images/image.png" alt="Los Pollos Hermanos ресторан" class="hero-image__img">
+                    <p class="hero-image__caption">Наш флагманский ресторан в Альбукерке</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--gallery">
+            <div class="container">
+                <h2 class="section__title">Наша галерея</h2>
+                <div class="gallery">
+                    <div class="gallery__item">
+                        <img src="images/chicken1.jpg" alt="Курочка 1" class="gallery__img">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/chicken2.jpg" alt="Курочка 2" class="gallery__img">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/chicken3.jpg" alt="Курочка 3" class="gallery__img">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/chicken4.jpg" alt="Курочка 4" class="gallery__img">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/chicken5.jpg" alt="Курочка 5" class="gallery__img">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/chicken6.jpg" alt="Курочка 6" class="gallery__img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section__title">Новости и акции</h2>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <h3 class="news-card__title">Открытие нового ресторана</h3>
+                        <p class="news-card__date">15 марта 2024</p>
+                        <p class="news-card__text">Мы рады сообщить об открытии нового ресторана в Санта-Фе! Приходите
+                            на открытие и получите скидку 20%.</p>
+                    </article>
+                    <article class="news-card">
+                        <h3 class="news-card__title">Сезонное меню</h3>
+                        <p class="news-card__date">10 марта 2024</p>
+                        <p class="news-card__text">Представляем новое сезонное меню с уникальными соусами и гарнирами.
+                            Только этой весной!</p>
+                    </article>
+                    <article class="news-card">
+                        <h3 class="news-card__title">Конкурс рецептов</h3>
+                        <p class="news-card__date">5 марта 2024</p>
+                        <p class="news-card__text">Участвуйте в нашем конкурсе и выиграйте годовой запас курочки!
+                            Подробности в ресторанах.</p>
+                    </article>
+                    <article class="news-card">
+                        <h3 class="news-card__title">Обновление интерьера</h3>
+                        <p class="news-card__date">1 марта 2024</p>
+                        <p class="news-card__text">Завершилось обновление интерьера в нашем флагманском ресторане. Стало
+                            еще уютнее!</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <aside class="promo promo--desktop">
+            <div class="container">
+                <h3 class="promo__title">Специальное предложение!</h3>
+                <p class="promo__text">На этой неделе: <strong class="text--accent">2+1 на все комбо</strong> по
+                    вторникам и четвергам</p>
+                <p class="promo__text"><em class="text--emphasis">Не упустите</em> - <del
+                        class="text--strikethrough">Предложение действительно пока Волтер Вайт варит ***</del> <ins
+                        class="text--underline">Действует весь месяц</ins></p>
+            </div>
+        </aside>
+
+        <div class="chat-widget">
+            <button class="chat-widget__toggle" onclick="toggleChat()">
+                💬 Помощь
+            </button>
+            <div class="chat-widget__content">
+                <div class="chat-widget__header">
+                    <h4>Поддержка Los Pollos Hermanos</h4>
+                    <button class="chat-widget__close" onclick="toggleChat()">×</button>
+                </div>
+                <div class="chat-widget__messages">
+                    <div class="chat-message chat-message--bot">
+                        <p>Здравствуйте! Чем могу помочь?</p>
+                    </div>
+                </div>
+                <div class="chat-widget__input">
+                    <input type="text" placeholder="Введите ваш вопрос...">
+                    <button>Отправить</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <section class="footer-section">
+                    <h2 class="footer-section__title">Информация</h2>
+                    <p class="footer-section__text"><strong class="text--accent">Телефон:</strong> (505) 842-5667</p>
+                    <p class="footer-section__text"><strong class="text--accent">Часы работы:</strong>
+                        Понедельник-Воскресенье 9:00 - 22:00</p>
+                    <p class="footer-copyright"><small class="text--small">Los Pollos Hermanos &copy; 1989-2025. Все
+                            права
+                            защищены.</small></p>
+                </section>
+
+                <nav class="footer-nav">
+                    <ul class="footer-nav__list">
+                        <li class="footer-nav__item"><a href="index.html" class="footer-nav__link">Главная</a></li>
+                        <li class="footer-nav__item"><a href="menu.html" class="footer-nav__link">Меню</a></li>
+                        <li class="footer-nav__item"><a href="restaurants.html" class="footer-nav__link">Рестораны</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="history.html" class="footer-nav__link">Наша история</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="recipe.html" class="footer-nav__link">Создать рецепт</a>
+                        </li>
+                        <li class="footer-nav__item"><a href="contacts.html" class="footer-nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-banner">
+                <p>Работаем с 1989 года • Более 30 лет совершенства • Качество, которому доверяют</p>
+            </div>
+            <div id="loadTime" class="load-time"></div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

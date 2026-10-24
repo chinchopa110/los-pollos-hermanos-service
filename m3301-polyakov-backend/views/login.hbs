@@ -1,0 +1,46 @@
+<section class="section section--alt">
+    <div class="container">
+        <h2 class="section__title">Вход в систему</h2>
+        
+        {{#if error}}
+        <div class="error-message" style="background-color: #fee; border: 1px solid #fcc; padding: 1rem; margin-bottom: 1rem; border-radius: 4px; color: #c33;">
+            <strong>Ошибка:</strong> {{error}}
+        </div>
+        {{/if}}
+
+        {{#if success}}
+        <div class="success-message" style="background-color: #efe; border: 1px solid #cfc; padding: 1rem; margin-bottom: 1rem; border-radius: 4px; color: #3c3;">
+            <strong>Успешно!</strong> {{success}}
+        </div>
+        {{/if}}
+
+        <form method="POST" action="/login" class="recipe-form" style="max-width: 400px; margin: 0 auto;">
+            <fieldset class="form-fieldset">
+                <legend class="form-legend">Введите данные для входа</legend>
+                
+                <label class="form-label" for="username">Имя пользователя</label>
+                <input 
+                    id="username" 
+                    name="username" 
+                    type="text" 
+                    required 
+                    class="form-select"
+                    placeholder="Введите имя пользователя"
+                    value="{{username}}"
+                >
+
+                <label class="form-label" for="password">Пароль</label>
+                <input 
+                    id="password" 
+                    name="password" 
+                    type="password" 
+                    required 
+                    class="form-select"
+                    placeholder="Введите пароль"
+                >
+            </fieldset>
+
+            <button type="submit" class="button button--primary" style="width: 100%;">Войти</button>
+        </form>
+    </div>
+</section>

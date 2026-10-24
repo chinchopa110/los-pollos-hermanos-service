@@ -1,0 +1,38 @@
+<section class="section section--alt">
+    <div class="container" style="max-width: 36rem;">
+        <h2 class="section__title">{{#if isEdit}}Редактирование отзыва{{else}}Новый отзыв{{/if}}</h2>
+
+        <form class="recipe-form" method="post"
+            action="{{#if isEdit}}/feedback/{{item.id}}/update{{else}}/feedback{{/if}}">
+            <fieldset class="form-fieldset">
+                <legend class="form-legend">Ваши данные</legend>
+                <label class="form-label" for="authorName">Имя и фамилия</label>
+                <input id="authorName" name="authorName" type="text" required minlength="2" maxlength="50"
+                    pattern="^[A-Za-zА-Яа-яЁё\s\-']{2,}$" class="form-select"
+                    value="{{#if isEdit}}{{item.authorName}}{{/if}}">
+
+                <label class="form-label" for="email">Email</label>
+                <input id="email" name="email" type="email" required class="form-select" inputmode="email"
+                    value="{{#if isEdit}}{{item.email}}{{/if}}">
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+                <legend class="form-legend">Оценка и комментарий</legend>
+                <label class="form-label" for="rating">Оценка</label>
+                <select id="rating" name="rating" required class="form-select">
+                    <option value="">— Выберите оценку —</option>
+                    {{#each ratingOptions}}
+                    <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+                    {{/each}}
+                </select>
+
+                <label class="form-label" for="message">Комментарий</label>
+                <textarea id="message" name="message" rows="4" required minlength="5" maxlength="500" class="form-select"
+                    placeholder="Поделитесь впечатлениями...">{{#if isEdit}}{{item.message}}{{/if}}</textarea>
+            </fieldset>
+
+            <button type="submit" class="button button--primary">{{#if isEdit}}Сохранить{{else}}Отправить{{/if}}</button>
+            <a href="/feedback" class="button button--secondary" style="margin-left:0.5rem;">К списку</a>
+        </form>
+    </div>
+</section>

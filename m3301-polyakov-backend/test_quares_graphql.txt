@@ -1,0 +1,64 @@
+query {
+  menuItems {
+    id
+    name
+    description
+    priceRub
+    category
+    isAvailable
+    imageKey
+    createdAt
+  }
+}
+
+query {
+  menuItemsPaginated(page: 1, limit: 5) {
+    data {
+      id
+      name
+      priceRub
+      category
+      isAvailable
+    }
+    total
+    page
+    limit
+    totalPages
+  }
+}
+
+query {
+  menuItemsByCategory(category: CHICKEN, page: 1, limit: 10) {
+    data {
+      id
+      name
+      priceRub
+    }
+    total
+    totalPages
+  }
+}
+
+query {
+  feedbacks {
+    id
+    authorName
+    rating
+    message
+    createdAt
+  }
+}
+
+mutation {
+  submitFeedback(input: {
+    authorName: "Иван Петров"
+    email: "ivan@example.com"
+    rating: 5
+    message: "Отличная курица, очень вкусно!"
+  }) {
+    id
+    authorName
+    rating
+    createdAt
+  }
+}

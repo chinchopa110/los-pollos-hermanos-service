@@ -1,0 +1,72 @@
+<section id="inicio" class="section section--hero">
+    <div class="container">
+        <h2 class="section__title section__title--hero">Добро пожаловать в Los Pollos Hermanos</h2>
+        <p class="section__text">Лучший фаст-фуд в <em class="text--emphasis">Альбукерке</em> и его окрестностях
+        </p>
+        <p class="section__text">Наша жареная курочка <em class="text--emphasis">просто неотразима</em></p>
+        <div class="hero-image">
+            <img src="{{heroImageUrl}}" alt="Los Pollos Hermanos ресторан" class="hero-image__img">
+            <p class="hero-image__caption">Наш флагманский ресторан в Альбукерке</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section--gallery">
+    <div class="container">
+        <h2 class="section__title">Наша галерея</h2>
+        <div class="gallery">
+            {{#each galleryImages}}
+            <div class="gallery__item">
+                <img src="{{this.src}}" alt="{{this.alt}}" class="gallery__img">
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section__title">Новости и акции</h2>
+        <div class="news-grid">
+            {{#each news}}
+            <article class="news-card">
+                <h3 class="news-card__title">{{this.title}}</h3>
+                <p class="news-card__date">{{this.date}}</p>
+                <p class="news-card__text">{{this.text}}</p>
+            </article>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<aside class="promo promo--desktop">
+    <div class="container">
+        <h3 class="promo__title">Специальное предложение!</h3>
+        <p class="promo__text">На этой неделе: <strong class="text--accent">2+1 на все комбо</strong> по
+            вторникам и четвергам</p>
+        <p class="promo__text"><em class="text--emphasis">Не упустите</em> - <del
+                class="text--strikethrough">Предложение действительно пока Волтер Вайт варит ***</del> <ins
+                class="text--underline">Действует весь месяц</ins></p>
+    </div>
+</aside>
+
+<div class="chat-widget">
+    <button class="chat-widget__toggle" onclick="toggleChat()">
+        💬 Помощь
+    </button>
+    <div class="chat-widget__content">
+        <div class="chat-widget__header">
+            <h4>Поддержка Los Pollos Hermanos</h4>
+            <button class="chat-widget__close" onclick="toggleChat()">×</button>
+        </div>
+        <div class="chat-widget__messages">
+            <div class="chat-message chat-message--bot">
+                <p>Здравствуйте! Чем могу помочь?</p>
+            </div>
+        </div>
+        <div class="chat-widget__input">
+            <input type="text" placeholder="Введите ваш вопрос...">
+            <button>Отправить</button>
+        </div>
+    </div>
+</div>

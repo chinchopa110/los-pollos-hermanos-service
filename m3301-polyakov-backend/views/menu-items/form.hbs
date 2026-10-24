@@ -1,0 +1,41 @@
+<section class="section section--alt">
+    <div class="container" style="max-width: 36rem;">
+        <h2 class="section__title">{{#if isEdit}}Редактирование{{else}}Новая позиция{{/if}}</h2>
+
+        <form class="recipe-form" method="post"
+            action="{{#if isEdit}}/menu-items/{{item.id}}/update{{else}}/menu-items{{/if}}">
+            <fieldset class="form-fieldset">
+                <label class="form-label" for="name">Название</label>
+                <input id="name" name="name" type="text" required maxlength="120" class="form-select"
+                    value="{{#if isEdit}}{{item.name}}{{/if}}">
+
+                <label class="form-label" for="description">Описание</label>
+                <textarea id="description" name="description" rows="3" required maxlength="500" class="form-select">{{#if isEdit}}{{item.description}}{{/if}}</textarea>
+
+                <label class="form-label" for="priceRub">Цена (₽)</label>
+                <input id="priceRub" name="priceRub" type="number" required min="0" step="1" class="form-select"
+                    value="{{#if isEdit}}{{item.priceRub}}{{/if}}">
+
+                <label class="form-label" for="category">Категория</label>
+                <select id="category" name="category" required class="form-select">
+                    {{#each categoryOptions}}
+                    <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+                    {{/each}}
+                </select>
+
+                <label class="form-label" for="imageKey">Ключ файла изображения (необязательно)</label>
+                <input id="imageKey" name="imageKey" type="text" maxlength="200" class="form-select" placeholder="например chicken1.jpg"
+                    value="{{#if isEdit}}{{item.imageKey}}{{/if}}">
+
+                <label class="form-label" for="isAvailable">Доступно для заказа</label>
+                <select id="isAvailable" name="isAvailable" class="form-select">
+                    <option value="true" {{#unless isEdit}}selected{{/unless}}{{#if isEdit}}{{#if item.isAvailable}}selected{{/if}}{{/if}}>Да</option>
+                    <option value="false" {{#if isEdit}}{{#unless item.isAvailable}}selected{{/unless}}{{/if}}>Нет</option>
+                </select>
+            </fieldset>
+
+            <button type="submit" class="button button--primary">{{#if isEdit}}Сохранить{{else}}Создать{{/if}}</button>
+            <a href="/menu-items" class="button button--secondary" style="margin-left:0.5rem;">Отмена</a>
+        </form>
+    </div>
+</section>

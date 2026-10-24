@@ -1,0 +1,12 @@
+<div class="session-info" style="margin-bottom: 1rem;">
+    {{#if user}}
+        <div class="session-info__authorized" style="display: flex; gap: 1rem; align-items: center; justify-content: flex-end;">
+            <span class="session-info__text" style="color: var(--color-text-light);">Вы вошли как: <strong style="color: var(--color-accent);">{{user.name}}</strong></span>
+            <a href="/logout" class="session-info__link button button--secondary" style="padding: 0.5rem 1rem; text-decoration: none;">Выйти</a>
+        </div>
+    {{else}}
+        <div class="session-info__unauthorized" style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+            <a href="/login" class="session-info__link button button--primary" style="padding: 0.5rem 1rem; text-decoration: none;">Войти</a>
+        </div>
+    {{/if}}
+</div>

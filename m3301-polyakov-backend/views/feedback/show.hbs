@@ -1,0 +1,19 @@
+<section class="section">
+    <div class="container" style="max-width: 40rem;">
+        <h2 class="section__title">Отзыв от {{item.authorName}}</h2>
+        <article class="news-card review-card">
+            <p class="news-card__date">{{item.email}} · оценка {{item.rating}}/5</p>
+            <p class="news-card__text">{{item.message}}</p>
+            <p class="news-card__date" style="font-size:0.85rem;">{{item.createdAt}}</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem;">
+                <a href="/feedback" class="button button--secondary">К списку</a>
+                {{#if canManage}}
+                <a href="/feedback/{{item.id}}/edit" class="button button--primary">Редактировать</a>
+                <form method="post" action="/feedback/{{item.id}}/delete" style="display:inline;" onsubmit="return confirm('Удалить отзыв?');">
+                    <button type="submit" class="button button--secondary">Удалить</button>
+                </form>
+                {{/if}}
+            </div>
+        </article>
+    </div>
+</section>

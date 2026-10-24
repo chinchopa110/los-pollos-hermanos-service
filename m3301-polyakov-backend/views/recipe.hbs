@@ -1,0 +1,77 @@
+<section class="section section--alt">
+    <div class="container">
+        <h2 class="section__title">Создай свой секретный рецепт!</h2>
+        <p class="section__text">Поэкспериментируй с нашими ингредиентами и создай уникальную панировку:</p>
+
+        <form id="recipeForm" class="recipe-form">
+            <fieldset class="form-fieldset">
+                <legend class="form-legend">Выбери основные ингредиенты:</legend>
+
+                <label class="form-label">
+                    <input type="checkbox" name="ingredient" value="мука" class="form-checkbox">
+                    Мука
+                </label>
+
+                <label class="form-label">
+                    <input type="checkbox" name="ingredient" value="кукурузная мука" class="form-checkbox">
+                    Кукурузная мука
+                </label>
+
+                <label class="form-label">
+                    <input type="checkbox" name="ingredient" value="панировочные сухари" class="form-checkbox">
+                    Панировочные сухари
+                </label>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+                <legend class="form-legend">Выбери специи:</legend>
+
+                <label class="form-label">
+                    <input type="checkbox" name="spice" value="соль" class="form-checkbox">
+                    Соль
+                </label>
+
+                <label class="form-label">
+                    <input type="checkbox" name="spice" value="чёрный перец" class="form-checkbox">
+                    Чёрный перец
+                </label>
+
+                <label class="form-label">
+                    <input type="checkbox" name="spice" value="паприка" class="form-checkbox">
+                    Паприка
+                </label>
+
+                <label class="form-label">
+                    <input type="checkbox" name="spice" value="чесночный порошок" class="form-checkbox">
+                    Чесночный порошок
+                </label>
+
+                <label class="form-label">
+                    <input type="checkbox" name="spice" value="луковый порошок" class="form-checkbox">
+                    Луковый порошок
+                </label>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+                <legend class="form-legend">Секретный ингредиент:</legend>
+                <select name="secret" class="form-select">
+                    <option value="">-- Выбери секретный ингредиент --</option>
+                    <option value="мёд">Мёд</option>
+                    <option value="соевый соус">Соевый соус</option>
+                    <option value="лимонный сок">Лимонный сок</option>
+                    <option value="горчица">Горчица</option>
+                    <option value="острый соус">Острый соус</option>
+                </select>
+            </fieldset>
+
+            <button type="button" class="button button--primary" onclick="createRecipe()">Создать
+                рецепт!</button>
+        </form>
+
+        <div id="recipeResult" class="recipe-result">
+            <h3 class="recipe-result__title">Твой уникальный рецепт:</h3>
+            <p id="recipeText" class="recipe-result__text"></p>
+            <p id="recipeVerdict" class="recipe-result__verdict"></p>
+        </div>
+    </div>
+</section>
